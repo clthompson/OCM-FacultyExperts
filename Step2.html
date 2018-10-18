@@ -1,0 +1,174 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Experts</title>
+
+    <link rel="stylesheet" href="css/facultyexperts.css?ts=<?=time()?>" />
+
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="http://www.brooklyn.cuny.edu/web/js/vendor/jquery.js"></script> <!-- jQuery -->
+    <script src="http://www.brooklyn.cuny.edu/web/js/foundation/foundation.js"></script> <!-- Foundation -->
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="">
+    <meta property="fb:admins" content="618382230">
+    <meta property="og:image" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content=""> 
+    <meta name="twitter:image:src" content="">
+
+    <!-- GA -->
+    <!-- FB -->
+  </head>
+
+  <body data-responsejs='{"create" : {"mode" : "src", "prefix" : "src"}}'>
+  <div id="skipnav"><a href="#mainContent" ga-category="SkipNav" ga-action="Navigate" ga-label="SkipNav" tabindex="0">Skip to Main Content</a></div>
+
+
+    <h1 class="articleTitle" id="mainContent" role="main" tabindex="0">Search</h1>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        // create the list of people from the people list page
+
+        // hide all the experts
+        $("#expertList li").hide();
+        // on keyup in the search field
+        $("#searchField").on("keyup", function() {
+          // length must be 3 or more
+          if($(this).val().length > 2) {
+            // make search term lowercase
+            var searchTerm = $(this).val().toLowerCase();
+            console.log(searchTerm);
+            // search for the term in the li > data-person attribute
+            $("#expertList li").filter(function() {
+              // toggle to show any matches
+              $(this).toggle($(this).attr("data-person").toLowerCase().indexOf(searchTerm) > -1)
+            });
+          };
+          // if string length goes below 3, hide all experts
+          if($(this).val().length < 3) {
+            $("#expertList li").hide();
+          };
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $(".media_block .media_load").load("http://www.brooklyn.cuny.edu/web/academics/schools/naturalsciences/departments/computers/news.php .fermata_open .fermata_item:lt(3)", function(response, status, xhr) {
+          if (status == "error") {
+            var msg = "Sorry but there was an error: ";
+            $(".media_block .media_load").html(msg + xhr.status + " " + xhr.statusText + ". Try again later.");
+          } else {
+            $('.media_block .media_display').html('');
+              edit_news();
+          }
+        });
+      });
+                      
+      function edit_news() {
+        $news_load = $('.media_block .media_load');
+  
+        var n_date, n_title, n_blurb, n_img, n_url;
+        $news_load.find('.fermata_item').each(function(){
+          n_date  = $(this).find('.date_image .date').text();
+          n_title = $(this).find('.info h2 a').text();
+          n_url   = $(this).find('.info a').attr('href')
+    
+          create_news_item(n_date, n_title, n_url);
+        });
+      }
+                        
+      function create_news_item(n_date, n_title, n_url){
+        var item_string = '';
+        item_string += '<div class="item">';
+        item_string += '  <h3 class="date2">' + n_date + '</h3>';
+        item_string += '  <h2 class="itemTitle"><a href="' + n_url + '">' + n_title +'</a></h2>';
+        item_string += '</div>';
+  
+        $('.media_block .media_display').append(item_string);
+      }
+    </script>
+
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+        // ALS0 we also want to trigger event tracking on keyup, 
+        // ALSO script creates list 
+
+
+      });
+    </script>
+
+
+    <section>
+      <p>Type something in the input field to search the table for first names, last names or emails:</p>  
+      <input id="searchField" type="text" placeholder="Search.." tabindex="1">
+    </section>
+
+    <section>
+      <ul id="expertList" class="">
+        <li class="" data-person="Jim Carrey Biology Evolution Cells Division"><a href="#">Jim Carrey<br>Biology</a></li>
+        <li class="" data-person="Nick Cage Chemistry Organic Materials"><a href="#">Nick Cage<br>Chemistry</a></li>
+        <li class="" data-person="Fred William Business Accounting"><a href="#">Fred William<br>Accounting</a></li>
+        <li class="" data-person="Pete Carroll Education Art Children"><a href="#">Pete Carroll<br>Education</a></li>
+        <li class="" data-person="Retail"><a href="#">Susan Jenkins<br>Business</a></li>
+      </ul>
+
+
+
+
+
+
+      <!--<table>
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+          <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+          </tr>
+          <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@mail.com</td>
+          </tr>
+          <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@greatstuff.com</td>
+          </tr>
+          <tr>
+            <td>Anja</td>
+            <td>Ravendale</td>
+            <td>a_r@test.com</td>
+          </tr>
+        </tbody>
+      </table>-->
+    </section>
+
+
+
+
+    <!--<script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>-->
+    <!--<script src="js/app.js"></script>-->
+
+    <script>
+      $(document).foundation();
+    </script>
+
+  </body>
+</html>

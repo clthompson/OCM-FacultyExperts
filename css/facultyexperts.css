@@ -1,0 +1,31 @@
+/* CSS Document */
+/* CSS Document */
+/* line 13, ../scss/_local_css.scss */
+a {
+  min-width: 200px;
+}
+/* line 16, ../scss/_local_css.scss */
+a:hover {
+  color: #fff;
+}
+
+/* line 22, ../scss/_local_css.scss */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* line 26, ../scss/_local_css.scss */
+ul li {
+  padding: 25px;
+  margin: 0;
+}
+/* line 29, ../scss/_local_css.scss */
+ul li:hover {
+  background-color: #882346;
+}
+
+/* line 35, ../scss/_local_css.scss */
+.hidden {
+  display: none;
+}
