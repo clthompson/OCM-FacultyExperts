@@ -7,9 +7,9 @@
 
     <link rel="stylesheet" href="css/facultyexperts.css?ts=<?=time()?>" />
 
-    <script src="bower_components/modernizr/modernizr.js"></script>
-    <script src="http://www.brooklyn.cuny.edu/web/js/vendor/jquery.js"></script> <!-- jQuery -->
-    <script src="http://www.brooklyn.cuny.edu/web/js/foundation/foundation.js"></script> <!-- Foundation -->
+    <!--<script src="bower_components/modernizr/modernizr.js"></script> -->
+     <script src="http://www.brooklyn.cuny.edu/web/js/vendor/jquery.js"></script> <!-- jQuery -->
+    <!--<script src="http://www.brooklyn.cuny.edu/web/js/foundation/foundation.js"></script> Foundation -->
 
     <meta property="og:title" content="">
     <meta property="og:type" content="website">
@@ -25,17 +25,35 @@
     <!-- FB -->
   </head>
 
-  <body data-responsejs='{"create" : {"mode" : "src", "prefix" : "src"}}'>
+  <body>
   <!--<div id="skipnav"><a href="#mainContent" ga-category="SkipNav" ga-action="Navigate" ga-label="SkipNav" tabindex="0">Skip to Main Content</a></div>-->
 
 
     <h1 class="articleTitle" id="mainContent" role="main" tabindex="0">Search</h1>
 
     <script type="text/javascript">
-      $(document).ready(function() {
-        // create the list of people from the people list page
 
-        // hide all the experts
+      //LIST BUILD
+      $(document).ready(function() {
+          // put it all into an array
+          var allBios = $(".bioLoad .bio");
+          console.log(allBios);
+          // for each array item
+          $(allBios).each(function(){
+            //make variables of needed elements
+            var fe_name = $(this).attr("data-name");
+            var fe_field = $(this).attr("data-field");
+            var fe_expertise = $(this).attr("data-expertise");
+            var fe_url = $(this).attr("data-url");
+            console.log(fe_name, fe_field, fe_expertise, fe_url);
+            //append the list with an LI for each item
+          $("#expertList").append("<li data-person='"+fe_name+" "+fe_field+" "+fe_expertise+"'><a href='"+fe_url+"'>"+fe_name+", "+fe_field+"</a></li>");
+        });
+      });
+
+      // SEARCH
+      $(document).ready(function() {
+        // hide all the experts now that the list is built
         $("#expertList li").hide();
         // on keyup in the search field
         $("#searchField").on("keyup", function() {
@@ -60,68 +78,33 @@
 
     <section>
       <p>Type something in the input field to search the table for first names, last names, disciplines, or keywords.</p>
-      <p><b>Available search terms:</b> gregory, smithsimon, sociology, urban, studies, gentrification, kenneth, gould, sociology, environment, gentrification, climate, change, jennifer, ball, material, culture, textiles, lauren, mancia, european, middle, ages, medievalism, mojubaolu, okome, political, science, gender, power, africa</p>
+      <p><b>Available search terms:</b> gregory, smithsimon, sociology, urban, studies, gentrification, kenneth, gould, sociology, environment, gentrification, climate, change, jennifer, ball, material, culture, textiles, lauren, mancia, history, european, middle, ages, medievalism, mojubaolu, okome, political, science, gender, power, africa</p>
       <input id="searchField" type="text" placeholder="Search.." tabindex="1">
     </section>
 
-    <section>
-      
-      <ul id="expertList" class="">
-        <li class="" data-person="Gregory Smithsimon Sociology Urban Studies Gentrification"><a href="#">Gregory Smithsimon, Sociology</a></li>
-        <li class="" data-person="Kenneth Gould Sociology Environment Gentrification Climate Change"><a href="#">Kenneth Gould, Chemistry</a></li>
-        <li class="" data-person="Jennifer Ball material culture textiles"><a href="#">Jennifer Ball, Fine Arts</a></li>
-        <li class="" data-person="Lauren Mancia European Middle Ages Medievalism"><a href="#">Lauren Mancia, History</a></li>
-        <li class="" data-person="Mojubaolu Okome Political Science Gender Power africa"><a href="#">Mojubaolu Okome, Political Science</a></li>
-      </ul>
-
-
-
-
-
-
-      <!--<table>
-        <thead>
-          <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody id="myTable">
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-          </tr>
-          <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@mail.com</td>
-          </tr>
-          <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>july@greatstuff.com</td>
-          </tr>
-          <tr>
-            <td>Anja</td>
-            <td>Ravendale</td>
-            <td>a_r@test.com</td>
-          </tr>
-        </tbody>
-      </table>-->
+    <section class="bioLoad">
+      <!-- OT list -->
+      <section class="bio" data-name="Kenneth Gould" data-field="Sociology" data-expertise="Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters" data-url="gould.php">
+      </section>
+      <!-- OT list -->
     </section>
 
 
 
+    <section>
+      <ul id="expertList" class="">
+
+
+      </ul>
+    </section>
 
     <!--<script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>-->
     <!--<script src="js/app.js"></script>-->
 
-    <script>
+    <!--<script>
       $(document).foundation();
-    </script>
+    </script>-->
 
   </body>
 </html>

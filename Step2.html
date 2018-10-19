@@ -31,6 +31,7 @@
 
     <h1 class="articleTitle" id="mainContent" role="main" tabindex="0">Search</h1>
 
+    <!-- search -->
     <script type="text/javascript">
       $(document).ready(function() {
         // create the list of people from the people list page
@@ -49,6 +50,7 @@
               // toggle to show any matches
               $(this).toggle($(this).attr("data-person").toLowerCase().indexOf(searchTerm) > -1)
             });
+            // trigger event tracking
           };
           // if string length goes below 3, hide all experts
           if($(this).val().length < 3) {
@@ -56,10 +58,44 @@
           };
         });
       });
+
+
+            // BIO LOAD
+      $(document).ready(function() {
+        // load the bios from the All Bios Page and add them to the .bioLoad section
+        $(".bioLoad").load("AllBios.html .allBios .bio");      
+      });
+
+      // LIST BUILD
+      $(document).ready(function() {
+        // put it all into an array
+        var allBios = $(".bioLoad .bio");
+        console.log(allBios);
+        // for each array item
+        $(allBios).each(function(){
+          //make variables of needed elements
+          var fe_name = $(this).attr("data-name");
+          var fe_field = $(this).attr("data-field");
+          var fe_expertise = $(this).attr("data-expertise");
+          var fe_url = $(this).attr("data-url");
+          console.log(fe_name, fe_field, fe_expertise, fe_url);
+          //append the list with an LI for each item
+          $("#expertList").append("<li data-person='"+fe_name+" "+fe_field+" "+fe_expertise+"'><a href='"+fe_url+"'>"+fe_name+", "+fe_field+"</a></li>");
+        });
+      });
+
+
+      
     </script>
 
+
+
+
+    <!-- build the list -->
     <script type="text/javascript">
       $(document).ready(function(){
+
+        // load the specific page elements into the  
         $(".media_block .media_load").load("http://www.brooklyn.cuny.edu/web/academics/schools/naturalsciences/departments/computers/news.php .fermata_open .fermata_item:lt(3)", function(response, status, xhr) {
           if (status == "error") {
             var msg = "Sorry but there was an error: ";
@@ -106,60 +142,36 @@
       });
     </script>
 
-
     <section>
-      <p>Type something in the input field to search the table for first names, last names or emails:</p>  
+      <p>Type something in the input field to search the table for first names, last names, disciplines, or keywords.</p>
+      <p><b>Available search terms:</b> gregory, smithsimon, sociology, urban, studies, gentrification, kenneth, gould, sociology, environment, gentrification, climate, change, jennifer, ball, material, culture, textiles, lauren, mancia, history, european, middle, ages, medievalism, mojubaolu, okome, political, science, gender, power, africa</p>
       <input id="searchField" type="text" placeholder="Search.." tabindex="1">
     </section>
 
-    <section>
-      <ul id="expertList" class="">
-        <li class="" data-person="Jim Carrey Biology Evolution Cells Division"><a href="#">Jim Carrey<br>Biology</a></li>
-        <li class="" data-person="Nick Cage Chemistry Organic Materials"><a href="#">Nick Cage<br>Chemistry</a></li>
-        <li class="" data-person="Fred William Business Accounting"><a href="#">Fred William<br>Accounting</a></li>
-        <li class="" data-person="Pete Carroll Education Art Children"><a href="#">Pete Carroll<br>Education</a></li>
-        <li class="" data-person="Retail"><a href="#">Susan Jenkins<br>Business</a></li>
+    
+    <section class="">
+      <ul id="expertList">
+        
       </ul>
-
-
-
-
-
-
-      <!--<table>
-        <thead>
-          <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody id="myTable">
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-          </tr>
-          <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@mail.com</td>
-          </tr>
-          <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>july@greatstuff.com</td>
-          </tr>
-          <tr>
-            <td>Anja</td>
-            <td>Ravendale</td>
-            <td>a_r@test.com</td>
-          </tr>
-        </tbody>
-      </table>-->
     </section>
 
 
+
+
+
+
+
+    <!-- <section>
+      
+      <ul id="expertList" class="">
+        <li class="" data-person="Gregory Smithsimon Sociology Urban Studies Gentrification"><a href="#">Gregory Smithsimon, Sociology</a></li>
+        <li class="" data-person="Kenneth Gould Sociology Environment Gentrification Climate Change"><a href="#">Kenneth Gould, Chemistry</a></li>
+        <li class="" data-person="Jennifer Ball material culture textiles"><a href="#">Jennifer Ball, Fine Arts</a></li>
+        <li class="" data-person="Lauren Mancia History European Middle Ages Medievalism"><a href="#">Lauren Mancia, History</a></li>
+        <li class="" data-person="Mojubaolu Okome Political Science Gender Power africa"><a href="#">Mojubaolu Okome, Political Science</a></li>
+      </ul>
+
+    </section> -->
 
 
     <!--<script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -168,6 +180,50 @@
 
     <script>
       $(document).foundation();
+    </script>
+
+
+
+
+
+
+    <!-- original -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $(".media_block .media_load").load("http://www.brooklyn.cuny.edu/web/academics/schools/naturalsciences/departments/computers/news.php .fermata_open .fermata_item:lt(3)", function(response, status, xhr) {
+          if (status == "error") {
+            var msg = "Sorry but there was an error: ";
+            $(".media_block .media_load").html(msg + xhr.status + " " + xhr.statusText + ". Try again later.");
+          } else {
+            $('.media_block .media_display').html('');
+              edit_news();
+          }
+        });
+      });
+                      
+      function edit_news() {
+        $news_load = $('.media_block .media_load');
+  
+        var n_date, n_title, n_blurb, n_img, n_url;
+        $news_load.find('.fermata_item').each(function(){
+          n_date  = $(this).find('.date_image .date').text();
+          n_title = $(this).find('.info h2 a').text();
+          n_url   = $(this).find('.info a').attr('href')
+    
+          create_news_item(n_date, n_title, n_url);
+        });
+      }
+                        
+      function create_news_item(n_date, n_title, n_url){
+        var item_string = '';
+        item_string += '<div class="item">';
+        item_string += '  <h3 class="date2">' + n_date + '</h3>';
+        item_string += '  <h2 class="itemTitle"><a href="' + n_url + '">' + n_title +'</a></h2>';
+        item_string += '</div>';
+  
+        $('.media_block .media_display').append(item_string);
+      }
     </script>
 
   </body>
