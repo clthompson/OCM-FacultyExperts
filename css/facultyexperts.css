@@ -33,3 +33,28 @@ ul li {
 #expertList2 {
   border: 1px solid #882346;
 }
+
+/* line 54, ../scss/_local_css.scss */
+.facultyExperts .bio .photo {
+  float: left;
+  width: 150px;
+  padding-right: 25px;
+}
+/* line 58, ../scss/_local_css.scss */
+.facultyExperts .bio .photo img {
+  width: 100%;
+}
+/* line 61, ../scss/_local_css.scss */
+.facultyExperts .bio .photo ul.contact {
+  list-style: none;
+  margin: 0;
+}
+/* line 64, ../scss/_local_css.scss */
+.facultyExperts .bio .photo ul.contact li {
+  padding: 0;
+}
+/* line 69, ../scss/_local_css.scss */
+.facultyExperts .bio .details {
+  padding-left: 175px;
+  width: 515px;
+}

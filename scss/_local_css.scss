@@ -45,3 +45,30 @@ ul{
 #expertList2 {
 	border: $thin-maroon;
 }
+
+////////////////////////////////////////////////////
+
+// BIO
+.facultyExperts {
+	.bio {
+		.photo {
+			float: left;
+			width: 150px;
+			padding-right: 25px;
+			img {
+				width: 100%;
+			}
+			ul.contact {
+				list-style: none;
+				margin: 0;
+				li {
+					padding: 0;
+				}
+			}
+		}
+		.details {
+			padding-left: 175px;
+			width: 515px;
+		}
+	}
+}
