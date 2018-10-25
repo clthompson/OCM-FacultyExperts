@@ -56,18 +56,51 @@
                       <p>in-person, skype</p>
                       <p class="description">Gould’s research examines urban sustainability, climate change and resilience, environmental justice, and green gentrification in the US, the Caribbean, and Latin America. He is co-author of, Environment and Society (1994), Local Environmental Struggles (1996), The Treadmill of Production (2008), and Green Gentrification (2017). He is the 2018 recipient of the Frederick H. Buttel Distinguished Contribution Award from the Environment Section of the American Sociological Association.</p>
                   <h2>Recent Media</h2>
-                    <div class="accordion">
-                      <h3>News Article about Climate Change</h3>
-                      <p>Oct. 17, 2018, The New York Times</p>
-                      <p>Abstract: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit praesentium consectetur at minus provident aspernatur repellendus magni harum enim tenetur, voluptatibus corporis sint quidem nam ea illo. Quod consectetur, praesentium.</p>
-                      <p>URL: <a href="#">Link to Article</a></p>
-                    </div>
-                    <div class="accordion">
-                      <h3>News Article about Gentrification</h3>
-                      <p>Sept. 10, 2018, Boston Globe</p>
-                      <p>Abstract: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit praesentium consectetur at minus provident aspernatur repellendus magni harum enim tenetur, voluptatibus corporis sint quidem nam ea illo. Quod consectetur, praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas magnam reiciendis sit, nemo, atque facere qui cupiditate nam quis molestiae ullam. Debitis sit nostrum, eius blanditiis iure dicta quibusdam praesentium!</p>
-                      <p>URL: <a href="#">Link to Article</a></p>
-                    </div>
+                    
+                      <script type="text/javascript">
+                        $(document).ready(function($) {
+                          $('.rm').find('.accordion-toggle').click(function(){
+                            //Expand or collapse this panel
+                            $(this).next().slideToggle('fast');
+                            //see if button's AE is true
+                            if ($(this).attr('aria-expanded') === 'false') {
+                              $(this).attr('aria-expanded', 'true');
+                              $(this).next().attr('aria-hidden', 'false');
+                            } else if ($(this).attr('aria-expanded') === 'true') {
+                              $(this).attr('aria-expanded', 'false');
+                              $(this).next().attr('aria-hidden', 'true');
+                            };
+                            //Hide the other panels
+                            //$(".accordion-content").not($(this).next()).slideUp('fast');
+                          });
+                        });
+                      </script>
+                      <style>
+                        .accordion-toggle {cursor: pointer;}
+                        .accordion-content {display: none;}
+                        .accordion-content.default {display: block;}
+                      </style>
+                      <section class="rm">
+                      
+                      <button class="accordion-toggle" aria-expanded="false">
+                        <h3>News Article about Climate Change</h3>
+                        <p>Oct. 17, 2018, <em>The New York Times</em></p>
+                      </button>
+                      <div class="accordion-content" aria-hidden="true">
+                        <p>Abstract: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit praesentium consectetur at minus provident aspernatur repellendus magni harum enim tenetur, voluptatibus corporis sint quidem nam ea illo. Quod consectetur, praesentium.</p>
+                        <p>URL: <a href="#">Link to Article</a></p>
+                      </div>
+
+
+                      <div class="accordion-toggle">
+                        <h3>News Article about Climate Change</h3>
+                        <p>Oct. 17, 2018, <em>The New York Times</em></p>
+                      </div>
+                      <div class="accordion-content">
+                        <p>Abstract: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit praesentium consectetur at minus provident aspernatur repellendus magni harum enim tenetur, voluptatibus corporis sint quidem nam ea illo. Quod consectetur, praesentium.</p>
+                        <p>URL: <a href="#">Link to Article</a></p>
+                      </div>
+                    </section>
                 </section>
               </section>
 
