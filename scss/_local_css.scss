@@ -72,3 +72,17 @@ ul{
 		}
 	}
 }
+
+/* Accordion */
+  button.accordion-toggle {
+  	cursor: pointer; 
+  	border-width: 0;
+  	text-align: initial;
+  	background-color: #fff;
+  	background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat 0px 0px;
+  	background-position: 0px 2px;
+  	padding-left: 26px;
+  	width: 100%;
+  }
+  .accordion-content {display: none;}
+  .accordion-content.default {display: block;}
