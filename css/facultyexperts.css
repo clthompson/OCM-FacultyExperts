@@ -58,3 +58,47 @@ ul li {
   padding-left: 175px;
   width: 515px;
 }
+
+/* Accordion */
+/* line 77, ../scss/_local_css.scss */
+button.accordion-toggle {
+  cursor: pointer;
+  border-width: 0;
+  text-align: initial;
+  background-color: #fff;
+  padding: 0 !important;
+  width: 100%;
+}
+/* line 85, ../scss/_local_css.scss */
+button.accordion-toggle .visual {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 2px 5px 0 0;
+  background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat 0px 0px;
+}
+/* line 93, ../scss/_local_css.scss */
+button.accordion-toggle .visual.minus {
+  background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat -19px 0px;
+}
+/* line 97, ../scss/_local_css.scss */
+button.accordion-toggle .content {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 !important;
+}
+
+/* line 108, ../scss/_local_css.scss */
+button.accordion-toggle.minus {
+  background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat -19px 2px;
+}
+
+/* line 112, ../scss/_local_css.scss */
+.accordion-content {
+  display: none;
+}
+
+/* line 113, ../scss/_local_css.scss */
+.accordion-content.default {
+  display: block;
+}
