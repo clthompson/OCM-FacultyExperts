@@ -58,3 +58,26 @@ ul li {
   padding-left: 175px;
   width: 515px;
 }
+
+/* Accordion */
+/* line 77, ../scss/_local_css.scss */
+button.accordion-toggle {
+  cursor: pointer;
+  border-width: 0;
+  text-align: initial;
+  background-color: #fff;
+  background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat 0px 0px;
+  background-position: 0px 2px;
+  padding-left: 26px;
+  width: 100%;
+}
+
+/* line 87, ../scss/_local_css.scss */
+.accordion-content {
+  display: none;
+}
+
+/* line 88, ../scss/_local_css.scss */
+.accordion-content.default {
+  display: block;
+}
