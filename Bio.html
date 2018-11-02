@@ -59,32 +59,31 @@
                     
                       <script type="text/javascript">
                         $(document).ready(function($) {
-                          $('.rm').find('.accordion-toggle').click(function(){
+                          $('.accordion-toggle').click(function(){
                             //Expand or collapse this panel
                             $(this).next().slideToggle('fast');
                             //see if button's AE is true
                             if ($(this).attr('aria-expanded') === 'false') {
                               $(this).attr('aria-expanded', 'true');
                               $(this).next().attr('aria-hidden', 'false');
+                              $(this).find(".visual").addClass("minus");
                             } else if ($(this).attr('aria-expanded') === 'true') {
                               $(this).attr('aria-expanded', 'false');
                               $(this).next().attr('aria-hidden', 'true');
+                              $(this).find(".visual").removeClass("minus");
                             };
-                            //Hide the other panels
-                            //$(".accordion-content").not($(this).next()).slideUp('fast');
                           });
                         });
                       </script>
-                      <style>
-                        .accordion-toggle {cursor: pointer;}
-                        .accordion-content {display: none;}
-                        .accordion-content.default {display: block;}
-                      </style>
+
                       <section class="rm">
                       
                       <button class="accordion-toggle" aria-expanded="false">
-                        <h3>News Article about Climate Change</h3>
-                        <p>Oct. 17, 2018, <em>The New York Times</em></p>
+                        <div class="visual"></div>
+                        <div class="content">
+                          <h3>News Article about Climate Change</h3>
+                          <p>Oct. 17, 2018, <em>The New York Times</em></p>
+                        </div>
                       </button>
                       <div class="accordion-content" aria-hidden="true">
                         <p>Abstract: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit praesentium consectetur at minus provident aspernatur repellendus magni harum enim tenetur, voluptatibus corporis sint quidem nam ea illo. Quod consectetur, praesentium.</p>
@@ -101,6 +100,7 @@
                         <p>URL: <a href="#">Link to Article</a></p>
                       </div>
                     </section>
+
                 </section>
               </section>
 

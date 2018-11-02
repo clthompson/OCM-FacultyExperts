@@ -79,10 +79,35 @@ ul{
   	border-width: 0;
   	text-align: initial;
   	background-color: #fff;
-  	background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat 0px 0px;
-  	background-position: 0px 2px;
-  	padding-left: 26px;
+  	padding: 0 !important;
+  	//padding-left: 26px;
   	width: 100%;
+  	.visual {
+  		display: inline-block;
+  		width: 18px;
+  		height: 18px;
+  		margin: 2px 5px 0 0;
+  		background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat 0px 0px;
+  		//background-position: 0px 2px;
+  		//border: 1px solid #000;
+  		&.minus{
+  			background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat -19px 0px;
+  		}
+  	}
+  	.content {
+  		display: inline-block;
+  		vertical-align: top;
+  		//border: 1px solid #000;
+  		padding: 0 !important;
+  	}
+  }
+
+
+
+
+  button.accordion-toggle.minus {
+  	background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat -19px 2px;
+  	//background-position: 0px 2px;
   }
   .accordion-content {display: none;}
-  .accordion-content.default {display: block;}
+  .accordion-content.default {display: block;} 
