@@ -48,31 +48,6 @@ ul{
 
 ////////////////////////////////////////////////////
 
-// BIO
-.facultyExperts {
-	.bio {
-		.photo {
-			float: left;
-			width: 150px;
-			padding-right: 25px;
-			img {
-				width: 100%;
-			}
-			ul.contact {
-				list-style: none;
-				margin: 0;
-				li {
-					padding: 0;
-				}
-			}
-		}
-		.details {
-			padding-left: 175px;
-			width: 515px;
-		}
-	}
-}
-
 /* Accordion */
   button.accordion-toggle {
   	cursor: pointer; 
@@ -102,12 +77,62 @@ ul{
   	}
   }
 
-
-
-
-  button.accordion-toggle.minus {
-  	background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat -19px 2px;
-  	//background-position: 0px 2px;
-  }
   .accordion-content {display: none;}
   .accordion-content.default {display: block;} 
+
+// Individual BIO
+.facultyExperts {
+	.bio {
+		.photo {
+			float: left;
+			width: 150px;
+			padding-right: 25px;
+			img {
+				width: 100%;
+			}
+			ul.contact {
+				list-style: none;
+				margin: 0;
+				li {
+					padding: 0;
+				}
+			}
+		}
+		.details {
+			padding-left: 175px;
+			width: 515px;
+			.expertise {
+				a {
+					&:after{
+						//content: ", ";
+					}
+				}
+			}
+		}
+	}
+}
+
+// All BIOS
+.allBios {
+	.bio {
+		.photo {
+			float: left;
+			width: 100px;
+			padding-right: 15px;
+			img {
+				width: 100%;
+			}
+			ul.contact {
+				list-style: none;
+				margin: 0;
+				li {
+					padding: 0;
+				}
+			}
+		}
+		.details {
+			padding-left: 115px;
+			width: 575px;
+		}
+	}
+}

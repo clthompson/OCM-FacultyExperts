@@ -33,18 +33,75 @@
         <h1 class="articleTitle" id="mainContent" role="main" tabindex="0">All Experts</h1>
         <div id="additionalContent">
           
-          <section class="facultyExperts"> <!-- this is the main container -->
+          <section class="allBios"> <!-- this is the main container -->
 
-                <section class="bio" data-name="Kenneth Gould" data-field="Sociology" data-expertise="Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters" data-url="gould.php"> <!-- this is an individual person -->
+            <script type="text/javascript">
+              $(document).ready(function() {
+                // part 1a get all the possible keywords from all bios into an single array
+                // establish array 
+                var keywordsArray = []; // this will be the full array with the keywords written out
+                // get bios
+                var bios = $(".bio");
+                // for each, get the keywords
+                $(bios).each(function(){
+                  $(this).addClass("hidden");
+                  var bioKeywords = $(this).attr("data-keywords");
+                  // console.log(bioKeywords);
+                  // turn the keywords into array items
+                  var keywordList = $(bioKeywords.trim().split(/\s*,\s*/));
+                  // push them into the main keywords array
+                  $.merge(keywordsArray, keywordList);
+                  //keywordsArray.push(keywordList);
+                });
+                //console.log(keywordsArray);
+                // part 1b make a 2nd array with the same contents lowercase, no spaces
+                var filterArray = keywordsArray.slice(0);
+                //$(bios).each(function(){
+                //  var bioKeywords = $(this).attr("data-keywords");
+                //  var keywordList = $(bioKeywords.trim().split(/\s*,\s*/));
+                //  $.merge(filterArray, keywordList);
+                //});
+                $.each(filterArray,function(index,item){
+                  filterArray[index] = item.toLowerCase().replace(/\s/g, '').replace(/\./g, '');
+                });
+                console.log(filterArray);
+                // part 2 rewrite the data-keywords content to be lowercase, no spaces, no commas
+                $(bios).each(function(){
+                  // make a variable that gets the keywords and changes the strings
+                  var bioKeywords = $(this).attr("data-keywords").toLowerCase().replace(/\s/g, '').replace(/,/g , " ");
+                  //console.log(bioKeywords);
+                  // update the value
+                  $(this).attr("data-keywords", bioKeywords);
+                });
+                // part 3 look at the URL, if there is a filter get it, and hide all bios, then show all that fit the criteria
+                var filterTerm = $(location).attr("href").split('=').pop(); //http://www.brooklyn.cuny.edu/web/news/longreads/archive.php?=climatechange
+                if(window.location.href.indexOf("?=") > -1) {
+                  $(".bio[data-keywords*='"+filterTerm+"']").removeClass("hidden");
+                  //append Keyword to the All Stories element
+                  var filterLocation = filterArray.indexOf(filterTerm);
+                  $(".filter p span").append(keywordsArray[filterLocation]);
+                } else {
+                  // show all stories
+                  $(".bio").removeClass("hidden");
+                  // hide filter
+                  $(".filter").addClass("hidden");
+                };
+                // console.log(filterTerm);
+                // part 4 find the filterTerm in filterArray, get its position in the array, (append?) the same term from keywordsArray to the 'All stories in' line of code
+              });
+          </script>
+
+                <section class="bio" data-last="Gould" data-name="Kenneth Gould" data-field="Sociology" data-expertise="Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters" data-url="gould.php"> <!-- this is an individual person -->
                   <section class="photo">
-                    <img src="images/gould.jpg" alt="Gould">
+                    <a href="#"><img src="images/gould.jpg" alt="Gould"></a>
                   </section>
                   <section class="details">
                     <h2><a href="gould.php">Kenneth Gould</a></h2>
                     <h3>Professor, <span class="field">Sociology</span></h3>
+                    <h3>Expertise</h3>
                     <p class="expertise"><a href="#">Environment</a>, <a href="#">Climate Change</a>, <a href="#">Gentrification</a>, <a href="#">Sustainable Development</a>, <a href="#">Environmental Justice</a>, <a href="#">Natural Disasters</a></p>
                   </section>
-                  <section class="">
+                  <!-- <section class="">
                     <ul class="contact">
                       <li>718.951.5000 x1234</li>
                       <li><a href="mailto:info@brooklyn.cuny.edu">info@brooklyn.cuny.edu</a></li>
@@ -52,8 +109,8 @@
                       <li><a href="https://www.facebook.com">Facebook</a></li>
                       <li><a href="http://www.brooklyn.cuny.edu">Website</a></li>
                     </ul>
-                  </section>
-                </section>
+                  </section> -->
+                </section><div class="clear"></div>
 
           </aection>
 

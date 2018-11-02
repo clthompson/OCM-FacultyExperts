@@ -34,33 +34,8 @@ ul li {
   border: 1px solid #882346;
 }
 
-/* line 54, ../scss/_local_css.scss */
-.facultyExperts .bio .photo {
-  float: left;
-  width: 150px;
-  padding-right: 25px;
-}
-/* line 58, ../scss/_local_css.scss */
-.facultyExperts .bio .photo img {
-  width: 100%;
-}
-/* line 61, ../scss/_local_css.scss */
-.facultyExperts .bio .photo ul.contact {
-  list-style: none;
-  margin: 0;
-}
-/* line 64, ../scss/_local_css.scss */
-.facultyExperts .bio .photo ul.contact li {
-  padding: 0;
-}
-/* line 69, ../scss/_local_css.scss */
-.facultyExperts .bio .details {
-  padding-left: 175px;
-  width: 515px;
-}
-
 /* Accordion */
-/* line 77, ../scss/_local_css.scss */
+/* line 52, ../scss/_local_css.scss */
 button.accordion-toggle {
   cursor: pointer;
   border-width: 0;
@@ -69,7 +44,7 @@ button.accordion-toggle {
   padding: 0 !important;
   width: 100%;
 }
-/* line 85, ../scss/_local_css.scss */
+/* line 60, ../scss/_local_css.scss */
 button.accordion-toggle .visual {
   display: inline-block;
   width: 18px;
@@ -77,28 +52,73 @@ button.accordion-toggle .visual {
   margin: 2px 5px 0 0;
   background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat 0px 0px;
 }
-/* line 93, ../scss/_local_css.scss */
+/* line 68, ../scss/_local_css.scss */
 button.accordion-toggle .visual.minus {
   background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat -19px 0px;
 }
-/* line 97, ../scss/_local_css.scss */
+/* line 72, ../scss/_local_css.scss */
 button.accordion-toggle .content {
   display: inline-block;
   vertical-align: top;
   padding: 0 !important;
 }
 
-/* line 108, ../scss/_local_css.scss */
-button.accordion-toggle.minus {
-  background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat -19px 2px;
-}
-
-/* line 112, ../scss/_local_css.scss */
+/* line 80, ../scss/_local_css.scss */
 .accordion-content {
   display: none;
 }
 
-/* line 113, ../scss/_local_css.scss */
+/* line 81, ../scss/_local_css.scss */
 .accordion-content.default {
   display: block;
+}
+
+/* line 86, ../scss/_local_css.scss */
+.facultyExperts .bio .photo {
+  float: left;
+  width: 150px;
+  padding-right: 25px;
+}
+/* line 90, ../scss/_local_css.scss */
+.facultyExperts .bio .photo img {
+  width: 100%;
+}
+/* line 93, ../scss/_local_css.scss */
+.facultyExperts .bio .photo ul.contact {
+  list-style: none;
+  margin: 0;
+}
+/* line 96, ../scss/_local_css.scss */
+.facultyExperts .bio .photo ul.contact li {
+  padding: 0;
+}
+/* line 101, ../scss/_local_css.scss */
+.facultyExperts .bio .details {
+  padding-left: 175px;
+  width: 515px;
+}
+
+/* line 118, ../scss/_local_css.scss */
+.allBios .bio .photo {
+  float: left;
+  width: 100px;
+  padding-right: 15px;
+}
+/* line 122, ../scss/_local_css.scss */
+.allBios .bio .photo img {
+  width: 100%;
+}
+/* line 125, ../scss/_local_css.scss */
+.allBios .bio .photo ul.contact {
+  list-style: none;
+  margin: 0;
+}
+/* line 128, ../scss/_local_css.scss */
+.allBios .bio .photo ul.contact li {
+  padding: 0;
+}
+/* line 133, ../scss/_local_css.scss */
+.allBios .bio .details {
+  padding-left: 115px;
+  width: 575px;
 }

@@ -39,22 +39,89 @@
               <section class="bio">
                 <section class="photo">
                   <img src="images/smithsimon.jpg" alt="Smithsimon">
-                  <ul class="contact">
-                    <li>718.951.5000 x1234</li>
-                    <li><a href="mailto:info@brooklyn.cuny.edu">info@brooklyn.cuny.edu</a></li>
-                    <li><a href="https://www.twitter.com">Twitter</a></li>
-                    <li><a href="https://www.facebook.com">Facebook</a></li>
-                    <li><a href="http://www.brooklyn.cuny.edu">Website</a></li>
-                  </ul>
                 </section>
                 <section class="details">
                   <h2>Professor, <span class="field">Sociology</span></h2>
                     <h3 class="chairships">Other Titles and Chairships</h3>
+
                     <h3>Expertise</h3>
-                      <p class="expertise"><a href="#">Environment</a>, <a href="#">Climate Change</a>, <a href="#">Gentrification</a>, <a href="#">Sustainable Development</a>, <a href="#">Environmental Justice</a>, <a href="#">Natural Disasters</a></p>
+                    <script type="text/javascript">
+                      $(document).ready(function() {
+                        // get tags
+                        var baseExpertise = "Climate Change, Diversity, Sociology"; // placeholder for expertises
+                        // turn it into two variables with the right setups
+                        // array separated by commas removing front and back spaces
+                        var filterItem = $(baseExpertise.trim().split(/\s*,\s*/));
+                        // make array items lowercase and remove any additional spaces
+                        $.each(filterItem,function(index,item){
+                          filterItem[index] = item.toLowerCase().replace(/\s/g, '');
+                        });
+                        //console.log(filterItem);
+                        // array separated by commas removing front and back spaces
+                        var linkText = $(baseExpertise.trim().split(/\s*,\s*/));
+                        //console.log(linkText);
+
+                        // take each array item and turn it into <a href="anc_archive">Climate Change</a> within <section class="tags">
+                        var allExpertsURL = "http://www.brooklyn.cuny.edu/web/news/faculty-experts/all-experts.php"; // anc_placeholder for all experts page
+
+                        // build the html
+                        $(filterItem).each(function(i, e) {
+                          $(".bio .details .expertise p").append('<a href="'+allExpertsURL+'?='+filterItem[i]+'" onClick="ga(\'send\', \'event\', \'FE Bio -KennethGould\', \'navigate\', \'FE -KennethGould EXP '+linkText[i]+'\', 1, {\'NonInteraction\': 1});">'+linkText[i]+'</a>, ');
+                        });
+                        var noComma = $(".bio .details .expertise p").html().slice(0,-2);
+                        $(".bio .details .expertise p").html(noComma);
+                      });
+                    </script>
+                      <div class="expertise"><p>
+                        <!-- <a href="#">Environment</a>, <a href="#">Climate Change</a>, <a href="#">Gentrification</a>, <a href="#">Sustainable Development</a>, <a href="#">Environmental Justice</a>, <a href="#">Natural Disasters</a>-->
+                      </p></div>
                     <h3>Interview Availability</h3>
-                      <p>in-person, skype</p>
-                      <p class="description">Gould’s research examines urban sustainability, climate change and resilience, environmental justice, and green gentrification in the US, the Caribbean, and Latin America. He is co-author of, Environment and Society (1994), Local Environmental Struggles (1996), The Treadmill of Production (2008), and Green Gentrification (2017). He is the 2018 recipient of the Frederick H. Buttel Distinguished Contribution Award from the Environment Section of the American Sociological Association.</p>
+                    <script type="text/javascript">
+                      $(document).ready(function() {
+                        // get tags
+                        var baseAvail = "Print, Phone, In-studio, Video chat, On-campus"; // placeholder for expertises
+                        // turn it into two variables with the right setups
+                        // array separated by commas removing front and back spaces
+                        var filterItem = $(baseAvail.trim().split(/\s*,\s*/));
+                        // make array items lowercase and remove any additional spaces
+                        $.each(filterItem,function(index,item){
+                          filterItem[index] = item.toLowerCase().replace(/\s/g, '');
+                        });
+                        //console.log(filterItem);
+                        // array separated by commas removing front and back spaces
+                        var linkText = $(baseAvail.trim().split(/\s*,\s*/));
+                        //console.log(linkText);
+
+                        // take each array item and turn it into <a href="anc_archive">Climate Change</a> within <section class="tags">
+                        var allExpertsURL = "http://www.brooklyn.cuny.edu/web/news/faculty-experts/all-experts.php"; // anc_placeholder for all experts page
+
+                        // build the html
+                        $(filterItem).each(function(i, e) {
+                          $(".bio .details .availability p").append('<a href="'+allExpertsURL+'?='+filterItem[i]+'" onClick="ga(\'send\', \'event\', \'FE Bio -KennethGould\', \'navigate\', \'FE -KennethGould EXP '+linkText[i]+'\', 1, {\'NonInteraction\': 1});">'+linkText[i]+'</a>, ');
+                        });
+                        var noComma = $(".bio .details .availability p").html().slice(0,-2);
+                        $(".bio .details .availability p").html(noComma);
+                      });
+                    </script>
+                      <div class="availability"><p>
+                        <!-- in-person, skype -->
+                      </p></div>
+                    <h3>Contact</h3>
+                      <ul class="contact">
+                        <li>718.951.5000 x1234</li>
+                        <li><a href="mailto:info@brooklyn.cuny.edu">info@brooklyn.cuny.edu</a></li>
+                        <li><a href="https://www.twitter.com">Twitter</a></li>
+                        <li><a href="https://www.facebook.com">Facebook</a></li>
+                        <li><a href="http://www.brooklyn.cuny.edu">Website</a></li>
+                      </ul>
+                    <h3>Education</h3>
+                      <div class="education">
+                        <p>BA, Brown University, 1994, Urban Studies, Visual Arts<br />
+                        MA, Columbia University, 1999, Sociology<br />
+                        Ph.D., Columbia University, 2006, Sociology</p>
+                      </div>
+
+                      <div class="description"><p>Gould’s research examines urban sustainability, climate change and resilience, environmental justice, and green gentrification in the US, the Caribbean, and Latin America. He is co-author of, Environment and Society (1994), Local Environmental Struggles (1996), The Treadmill of Production (2008), and Green Gentrification (2017). He is the 2018 recipient of the Frederick H. Buttel Distinguished Contribution Award from the Environment Section of the American Sociological Association.</p></div>
                   <h2>Recent Media</h2>
                     
                       <script type="text/javascript">
