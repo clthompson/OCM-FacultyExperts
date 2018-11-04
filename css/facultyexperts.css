@@ -1,41 +1,41 @@
 /* CSS Document */
 /* CSS Document */
-/* line 13, ../scss/_local_css.scss */
+/* line 19, ../scss/_local_css.scss */
 a {
   min-width: 200px;
 }
 
-/* line 22, ../scss/_local_css.scss */
+/* line 28, ../scss/_local_css.scss */
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-/* line 26, ../scss/_local_css.scss */
+/* line 32, ../scss/_local_css.scss */
 ul li {
   padding: 5px;
   margin: 0;
 }
 
-/* line 35, ../scss/_local_css.scss */
+/* line 41, ../scss/_local_css.scss */
 .hidden {
   display: none;
 }
 
-/* line 39, ../scss/_local_css.scss */
+/* line 45, ../scss/_local_css.scss */
 .bioLoad {
   margin: 3.125rem 0 0 0;
   border: 1px solid #882346;
   display: none;
 }
 
-/* line 45, ../scss/_local_css.scss */
+/* line 51, ../scss/_local_css.scss */
 #expertList2 {
   border: 1px solid #882346;
 }
 
 /* Accordion */
-/* line 52, ../scss/_local_css.scss */
+/* line 64, ../scss/_local_css.scss */
 button.accordion-toggle {
   cursor: pointer;
   border-width: 0;
@@ -44,7 +44,7 @@ button.accordion-toggle {
   padding: 0 !important;
   width: 100%;
 }
-/* line 60, ../scss/_local_css.scss */
+/* line 72, ../scss/_local_css.scss */
 button.accordion-toggle .visual {
   display: inline-block;
   width: 18px;
@@ -52,73 +52,143 @@ button.accordion-toggle .visual {
   margin: 2px 5px 0 0;
   background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat 0px 0px;
 }
-/* line 68, ../scss/_local_css.scss */
+/* line 80, ../scss/_local_css.scss */
 button.accordion-toggle .visual.minus {
   background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat -19px 0px;
 }
-/* line 72, ../scss/_local_css.scss */
+/* line 84, ../scss/_local_css.scss */
 button.accordion-toggle .content {
   display: inline-block;
   vertical-align: top;
   padding: 0 !important;
 }
 
-/* line 80, ../scss/_local_css.scss */
+/* line 92, ../scss/_local_css.scss */
 .accordion-content {
   display: none;
 }
 
-/* line 81, ../scss/_local_css.scss */
+/* line 93, ../scss/_local_css.scss */
 .accordion-content.default {
   display: block;
 }
 
-/* line 86, ../scss/_local_css.scss */
+/* Individual BIO */
+/* line 98, ../scss/_local_css.scss */
 .facultyExperts .bio .photo {
   float: left;
   width: 150px;
   padding-right: 25px;
 }
-/* line 90, ../scss/_local_css.scss */
+/* line 102, ../scss/_local_css.scss */
 .facultyExperts .bio .photo img {
   width: 100%;
 }
-/* line 93, ../scss/_local_css.scss */
+/* line 105, ../scss/_local_css.scss */
 .facultyExperts .bio .photo ul.contact {
   list-style: none;
   margin: 0;
 }
-/* line 96, ../scss/_local_css.scss */
+/* line 108, ../scss/_local_css.scss */
 .facultyExperts .bio .photo ul.contact li {
   padding: 0;
 }
-/* line 101, ../scss/_local_css.scss */
+/* line 113, ../scss/_local_css.scss */
 .facultyExperts .bio .details {
   padding-left: 175px;
   width: 515px;
 }
 
-/* line 118, ../scss/_local_css.scss */
+/* All Experts */
+/* line 130, ../scss/_local_css.scss */
 .allBios .bio .photo {
   float: left;
   width: 100px;
   padding-right: 15px;
 }
-/* line 122, ../scss/_local_css.scss */
+/* line 134, ../scss/_local_css.scss */
 .allBios .bio .photo img {
   width: 100%;
 }
-/* line 125, ../scss/_local_css.scss */
+/* line 137, ../scss/_local_css.scss */
 .allBios .bio .photo ul.contact {
   list-style: none;
   margin: 0;
 }
-/* line 128, ../scss/_local_css.scss */
+/* line 140, ../scss/_local_css.scss */
 .allBios .bio .photo ul.contact li {
   padding: 0;
 }
-/* line 133, ../scss/_local_css.scss */
+/* line 145, ../scss/_local_css.scss */
 .allBios .bio .details {
   padding-left: 115px;
   width: 575px;
+}
+
+/*Search Page */
+/* line 157, ../scss/_local_css.scss */
+.searchElement {
+  position: relative;
+}
+/* line 159, ../scss/_local_css.scss */
+.searchElement .searchZone {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #882346;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+/* line 167, ../scss/_local_css.scss */
+.searchElement .searchZone #searchField {
+  position: absolute;
+  top: 79px;
+  left: 120px;
+  width: 450px;
+  height: 42px;
+  font-size: 18px;
+  line-height: 16px;
+  border-radius: 5px;
+  padding-left: 8px;
+  border: 3px solid #eee;
+}
+/* line 178, ../scss/_local_css.scss */
+.searchElement .searchZone #searchField:focus {
+  border-radius: 5px;
+  border: 3px solid #eee !important;
+  outline: none;
+}
+/* line 187, ../scss/_local_css.scss */
+.searchElement .searchResults {
+  list-style: none;
+}
+/* line 189, ../scss/_local_css.scss */
+.searchElement .searchResults .expertList {
+  position: absolute;
+  margin: 0;
+  top: 130px;
+  left: 121px;
+  width: 458px;
+  border-radius: 5px;
+  border-top: 2px solid #eee;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5);
+}
+/* line 202, ../scss/_local_css.scss */
+.searchElement .searchResults .expertList li {
+  padding: 7px 5px 10px 5px;
+  background-image: none;
+  background-color: #fff;
+  border-bottom: 2px solid #eee;
+  margin: 0;
+  color: #222;
+}
+/* line 212, ../scss/_local_css.scss */
+.searchElement .searchResults .expertList li a {
+  font-size: 18px;
+}
+/* line 216, ../scss/_local_css.scss */
+.searchElement .searchResults .expertList li .label {
+  font-weight: bolder;
 }

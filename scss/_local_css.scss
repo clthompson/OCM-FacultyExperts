@@ -4,7 +4,13 @@
 
 $color-maroon: #882346;
 $color-white: #fff;
+$color-grayeee: #eee;
+$color-gray222: #222;
 $thin-maroon: 1px solid $color-maroon;
+$medium-maroon: 2px solid $color-maroon;
+$medium-grayeee: 2px solid $color-grayeee;
+$thick-grayeee: 3px solid $color-grayeee;
+$shadow-222: 0px 5px 30px rgba(0, 0, 0, .5);
 
 section {
 	//border: $thin-maroon;
@@ -46,6 +52,12 @@ ul{
 	border: $thin-maroon;
 }
 
+
+
+
+
+
+
 ////////////////////////////////////////////////////
 
 /* Accordion */
@@ -80,7 +92,7 @@ ul{
   .accordion-content {display: none;}
   .accordion-content.default {display: block;} 
 
-// Individual BIO
+/* Individual BIO */
 .facultyExperts {
 	.bio {
 		.photo {
@@ -112,7 +124,7 @@ ul{
 	}
 }
 
-// All BIOS
+/* All Experts */
 .allBios {
 	.bio {
 		.photo {
@@ -134,5 +146,77 @@ ul{
 			padding-left: 115px;
 			width: 575px;
 		}
+	}
+}
+
+
+
+
+
+/*Search Page */
+.searchElement {
+		position: relative;
+	.searchZone {
+		position: relative;
+		width: 100%;
+		height: 200px;
+		background-color: $color-maroon;
+		border-radius: 3px;
+		margin-bottom: 15px;
+		//top: 0;
+		#searchField{
+			position: absolute;
+			top: 79px;
+			left: 120px;
+			width: 450px;
+			height: 42px;
+			font-size: 18px;
+			line-height: 16px;
+			border-radius: 5px;
+			padding-left: 8px;
+			border: $thick-grayeee;
+			&:focus {
+				border-radius: 5px;
+				border: $thick-grayeee !important;
+				// outline: $thick-grayeee !important;
+				// border: none;
+				outline: none;
+			}
+		}	
+	}
+	.searchResults{
+		list-style: none;
+		.expertList{
+			position: absolute;
+			margin: 0;
+			top: 130px;
+			left: 121px;
+			width: 458px;
+			//padding: 5px 5px 5px 5px;
+			//background-color: $color-white;
+			border-radius: 5px;
+			border-top: $medium-grayeee;
+			border-left: $medium-grayeee;
+			border-right: $medium-grayeee;
+			box-shadow: $shadow-222;
+			li {
+				padding: 7px 5px 10px 5px;
+				background-image: none;
+				background-color: $color-white;
+				border-bottom: $medium-grayeee;
+				margin: 0;
+				color: $color-gray222; 
+				//&:last-of-type{
+				// border-bottom: none;
+				//}
+				a {
+					font-size: 18px;
+					//font-weight: bolder;
+				}
+				.label{
+					font-weight: bolder;
+				}
+			}	
+		}	
 	}
 }

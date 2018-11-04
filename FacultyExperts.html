@@ -31,72 +31,107 @@
 
     <h1 class="articleTitle" id="mainContent" role="main" tabindex="0">Search</h1>
 
+
+
+
+
+
+
     <script type="text/javascript">
-
-      //LIST BUILD
       $(document).ready(function() {
-          // put it all into an array
-          var allBios = $(".bioLoad .bio");
-          console.log(allBios);
-          // for each array item
-          $(allBios).each(function(){
-            //make variables of needed elements
-            var fe_name = $(this).attr("data-name");
-            var fe_field = $(this).attr("data-field");
-            var fe_expertise = $(this).attr("data-expertise");
-            var fe_url = $(this).attr("data-url");
-            console.log(fe_name, fe_field, fe_expertise, fe_url);
-            //append the list with an LI for each item
-          $("#expertList").append("<li data-person='"+fe_name+" "+fe_field+" "+fe_expertise+"'><a href='"+fe_url+"'>"+fe_name+", "+fe_field+"</a></li>");
-        });
-
-
       // SEARCH
-
         // hide all the experts now that the list is built
-        $("#expertList li").hide();
+        $(".expertList li").hide();
         // on keyup in the search field
         $("#searchField").on("keyup", function() {
           // length must be 3 or more
           if($(this).val().length > 2) {
+            $(".expertList").removeClass("hidden");
             // make search term lowercase
             var searchTerm = $(this).val().toLowerCase();
-            console.log(searchTerm);
-            // search for the term in the li > data-person attribute
-            $("#expertList li").filter(function() {
-              // toggle to show any matches
-              $(this).toggle($(this).attr("data-person").toLowerCase().indexOf(searchTerm) > -1)
-            });
+            //console.log(searchTerm);
+            // Get all the possible terms and make a big string
+            var allKeywords = $(".expertList li").map(function() {
+              return $(this).data("person");
+            }).get();
+            // make the string lowercase
+            allKeywords = allKeywords.join(' ').toLowerCase();
+            //console.log(allKeywords);
+            // check to see if the search term is in the string
+            var validateTerm = new RegExp(searchTerm);
+            console.log(validateTerm);
+            var exists = validateTerm.test(allKeywords);
+            console.log(exists);
+            if (exists) {
+              $(".expertList li").filter(function() {
+                // toggle to show any matches
+                $(this).toggle($(this).attr("data-person").toLowerCase().indexOf(searchTerm) > -1);
+                console.log(this);
+              });
+            } else {
+              // show a failure message 
+              $(".expertList").append("<li>No results. Browse by name, field, or expertise.</li>");
+            }   
           };
           // if string length goes below 3, hide all experts
           if($(this).val().length < 3) {
-            $("#expertList li").hide();
+            $(".expertList li").hide();
+            $(".expertList").addClass("hidden");
           };
         });
       });
     </script>
 
-    <section>
-      <p>Type something in the input field to search the table for first names, last names, disciplines, or keywords.</p>
-      <p><b>Available search terms:</b> gregory, smithsimon, sociology, urban, studies, gentrification, kenneth, gould, sociology, environment, gentrification, climate, change, jennifer, ball, material, culture, textiles, lauren, mancia, history, european, middle, ages, medievalism, mojubaolu, okome, political, science, gender, power, africa</p>
-      <input id="searchField" type="text" placeholder="Search.." tabindex="1">
+  <section class="searchElement">
+
+    <section class="searchZone">
+        <input id="searchField" type="text" placeholder="Search by name, field, expertise or availability" tabindex="1" autocomplete="off">
     </section>
 
-    <section class="bioLoad">
-      <!-- OT list -->
-      <section class="bio" data-name="Kenneth Gould" data-field="Sociology" data-expertise="Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters" data-url="gould.php">
-      </section>
-      <!-- OT list -->
-    </section>
-
-
-
-    <section>
-      <ul id="expertList" class="">
-
-
+    <section class="searchResults">
+      <ul class="expertList hidden">
+          <li data-last="Ball" data-person="Jennifer Ball Art Medieval Art, History of the Mediterranean, Material Culture, Textiles, Dress History, Byzantine Islamic Relations Print, Phone, In-studio, Video chat, On-campus">
+              <a href="http://www.brooklyn.cuny.edu/web/news/faculty-experts/ball-jennifer.php"><span class="">Jennifer Ball</span>, Art</a><br />
+              <span class="label">Expertise:</span> Art, Medieval Art, History of the Mediterranean, Material Culture, Textiles, Dress History, Byzantine Islamic Relations<br />
+              <span class="label">Availability:</span> Print, Phone, In-studio, Video chat, On-campus</span>
+          </li><li data-last="Gould" data-person="Kenneth Gould Sociology Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters Print, Phone, In-studio, Video chat, On-campus">
+              <a href="http://www.brooklyn.cuny.edu/web/news/faculty-experts/gould-kenneth.php"><span class="">Kenneth Gould</span>, Sociology</a><br />
+              <span class="label">Expertise:</span> Sociology, Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters<br />
+              <span class="label">Availability:</span> Print, Phone, In-studio, Video chat, On-campus</span>
+          </li><li data-last="King" data-person="Rosamond S. King English Sexual Minorities, LGBTQ, Poetry, Experimental Poetry, Black Poetry, Digital Literature, Performance Art, Performance, African Literature, Mentoring Students, Graduate School Print, Phone, In-studio, Video chat, On-campus">
+              <a href="http://www.brooklyn.cuny.edu/web/news/faculty-experts/king-rosamond.php"><span class="">Rosamond S. King</span>, English</a><br />
+              <span class="label">Expertise:</span> English, Sexual Minorities, LGBTQ, Poetry, Experimental Poetry, Black Poetry, Digital Literature, Performance Art, Performance, African Literature, Mentoring Students, Graduate School<br />
+              <span class="label">Availability:</span> Print, Phone, In-studio, Video chat, On-campus</span>
+          </li><li data-last="Mancia" data-person="Lauren Mancia History History of Christianity, European Middle Ages; Medievalism, History of Emotions, Monasticism, Medieval Art  Print, Phone, In-studio, Video chat, On-campus">
+              <a href="http://www.brooklyn.cuny.edu/web/news/faculty-experts/mancia-lauren.php"><span class="">Lauren Mancia</span>, History</a><br />
+              <span class="label">Expertise:</span> History, History of Christianity, European Middle Ages; Medievalism, History of Emotions, Monasticism, Medieval Art <br />
+              <span class="label">Availability:</span> Print, Phone, In-studio, Video chat, On-campus</span>
+          </li><li data-last="Okome" data-person="Moj&uacute;b&agrave;ol&uacute; Oluf&uacute;nk&eacute; Okome Political Science Gender, Power, Religion in Africa, Gender Governance, Sub-Saharan African Political Economy, Democratization Economic Liberalization, Economic Political Development, Diaspora Studies, Contemporary African Immigration, Globalization, Gender Relations Print, Phone, In-studio, Video chat, On-campus">
+              <a href="http://www.brooklyn.cuny.edu/web/news/faculty-experts/okome-mojubaolu.php"><span class="">Moj&uacute;b&agrave;ol&uacute; Oluf&uacute;nk&eacute; Okome</span>, Political Science</a><br />
+              <span class="label">Expertise:</span> Political Science, Gender, Power, Religion in Africa, Gender Governance, Sub-Saharan African Political Economy, Democratization Economic Liberalization, Economic Political Development, Diaspora Studies, Contemporary African Immigration, Globalization, Gender Relations<br />
+              <span class="label">Availability:</span> Print, Phone, In-studio, Video chat, On-campus</span>
+          </li><li data-last="Pollard" data-person="Tanya Pollard English  Shakespeare, Early Modern Drama, Greek Drama, Performance, History of Bodies, Sexuality, Medicine, Drugs Print, Phone, In-studio, Video chat, On-campus">
+              <a href="http://www.brooklyn.cuny.edu/web/news/faculty-experts/pollard-tanya.php"><span class="">Tanya Pollard</span>, English</a><br />
+              <span class="label">Expertise:</span> English,  Shakespeare, Early Modern Drama, Greek Drama, Performance, History of Bodies, Sexuality, Medicine, Drugs<br />
+              <span class="label">Availability:</span> Print, Phone, In-studio, Video chat, On-campus</span>
+          </li><li data-last="Smithsimon" data-person="Gregory Smithsimon Sociology Urban Sociology, Gentrification, Race, Disasters and Community Responses to Terrorism, Climate Change, French Suburbs, Public Space and Plazas Print, Phone, In-studio, Video chat, On-campus">
+              <a href="http://www.brooklyn.cuny.edu/web/news/faculty-experts/smithsimon-gregory.php"><span class="">Gregory Smithsimon</span>, Sociology</a><br />
+              <span class="label">Expertise:</span> Sociology, Urban Sociology, Gentrification, Race, Disasters and Community Responses to Terrorism, Climate Change, French Suburbs, Public Space and Plazas<br />
+              <span class="label">Availability:</span> Print, Phone, In-studio, Video chat, On-campus</span>
+          </li><li data-last="Su" data-person="Celina Su Political Science Political Participation, Protest, Participatory Democracy, Participatory Budgeting, Civic Engagement Print, Phone, In-studio, Video chat">
+              <a href="http://www.brooklyn.cuny.edu/web/news/faculty-experts/su-celina.php"><span class="">Celina Su</span>, Political Science</a><br />
+              <span class="label">Expertise:</span> Political Science, Political Participation, Protest, Participatory Democracy, Participatory Budgeting, Civic Engagement<br />
+              <span class="label">Availability:</span> Print, Phone, In-studio, Video chat</span>
+          </li><li data-last="Vitale" data-person="Alex Vitale Sociology Policing, Public Safety, Crime, Alternatives to Incarceration, Youth Violence, Gangs, Drug Policy, School Safety, Sex Work  Print, Phone, In-studio, Video chat, On-campus">
+              <a href="http://www.brooklyn.cuny.edu/web/news/faculty-experts/vitale-alex.php"><span class="">Alex Vitale</span>, Sociology</a><br />
+              <span class="label">Expertise:</span> Sociology, Policing, Public Safety, Crime, Alternatives to Incarceration, Youth Violence, Gangs, Drug Policy, School Safety, Sex Work <br />
+              <span class="label">Availability:</span> Print, Phone, In-studio, Video chat, On-campus</span>
+          </li>
       </ul>
     </section>
+
+  </section>
+
 
     <!--<script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>-->
