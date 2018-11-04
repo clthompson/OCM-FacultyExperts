@@ -1,41 +1,41 @@
 /* CSS Document */
 /* CSS Document */
-/* line 19, ../scss/_local_css.scss */
+/* line 22, ../scss/_local_css.scss */
 a {
   min-width: 200px;
 }
 
-/* line 28, ../scss/_local_css.scss */
+/* line 31, ../scss/_local_css.scss */
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-/* line 32, ../scss/_local_css.scss */
+/* line 35, ../scss/_local_css.scss */
 ul li {
   padding: 5px;
   margin: 0;
 }
 
-/* line 41, ../scss/_local_css.scss */
+/* line 44, ../scss/_local_css.scss */
 .hidden {
   display: none;
 }
 
-/* line 45, ../scss/_local_css.scss */
+/* line 48, ../scss/_local_css.scss */
 .bioLoad {
   margin: 3.125rem 0 0 0;
   border: 1px solid #882346;
   display: none;
 }
 
-/* line 51, ../scss/_local_css.scss */
+/* line 54, ../scss/_local_css.scss */
 #expertList2 {
   border: 1px solid #882346;
 }
 
 /* Accordion */
-/* line 64, ../scss/_local_css.scss */
+/* line 67, ../scss/_local_css.scss */
 button.accordion-toggle {
   cursor: pointer;
   border-width: 0;
@@ -44,7 +44,7 @@ button.accordion-toggle {
   padding: 0 !important;
   width: 100%;
 }
-/* line 72, ../scss/_local_css.scss */
+/* line 75, ../scss/_local_css.scss */
 button.accordion-toggle .visual {
   display: inline-block;
   width: 18px;
@@ -52,85 +52,85 @@ button.accordion-toggle .visual {
   margin: 2px 5px 0 0;
   background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat 0px 0px;
 }
-/* line 80, ../scss/_local_css.scss */
+/* line 83, ../scss/_local_css.scss */
 button.accordion-toggle .visual.minus {
   background: url("http://www.brooklyn.cuny.edu/web/com_misc/expand.png") no-repeat -19px 0px;
 }
-/* line 84, ../scss/_local_css.scss */
+/* line 87, ../scss/_local_css.scss */
 button.accordion-toggle .content {
   display: inline-block;
   vertical-align: top;
   padding: 0 !important;
 }
 
-/* line 92, ../scss/_local_css.scss */
+/* line 95, ../scss/_local_css.scss */
 .accordion-content {
   display: none;
 }
 
-/* line 93, ../scss/_local_css.scss */
+/* line 96, ../scss/_local_css.scss */
 .accordion-content.default {
   display: block;
 }
 
 /* Individual BIO */
-/* line 98, ../scss/_local_css.scss */
+/* line 101, ../scss/_local_css.scss */
 .facultyExperts .bio .photo {
   float: left;
   width: 150px;
   padding-right: 25px;
 }
-/* line 102, ../scss/_local_css.scss */
+/* line 105, ../scss/_local_css.scss */
 .facultyExperts .bio .photo img {
   width: 100%;
 }
-/* line 105, ../scss/_local_css.scss */
+/* line 108, ../scss/_local_css.scss */
 .facultyExperts .bio .photo ul.contact {
   list-style: none;
   margin: 0;
 }
-/* line 108, ../scss/_local_css.scss */
+/* line 111, ../scss/_local_css.scss */
 .facultyExperts .bio .photo ul.contact li {
   padding: 0;
 }
-/* line 113, ../scss/_local_css.scss */
+/* line 116, ../scss/_local_css.scss */
 .facultyExperts .bio .details {
   padding-left: 175px;
   width: 515px;
 }
 
 /* All Experts */
-/* line 130, ../scss/_local_css.scss */
+/* line 133, ../scss/_local_css.scss */
 .allBios .bio .photo {
   float: left;
   width: 100px;
   padding-right: 15px;
 }
-/* line 134, ../scss/_local_css.scss */
+/* line 137, ../scss/_local_css.scss */
 .allBios .bio .photo img {
   width: 100%;
 }
-/* line 137, ../scss/_local_css.scss */
+/* line 140, ../scss/_local_css.scss */
 .allBios .bio .photo ul.contact {
   list-style: none;
   margin: 0;
 }
-/* line 140, ../scss/_local_css.scss */
+/* line 143, ../scss/_local_css.scss */
 .allBios .bio .photo ul.contact li {
   padding: 0;
 }
-/* line 145, ../scss/_local_css.scss */
+/* line 148, ../scss/_local_css.scss */
 .allBios .bio .details {
   padding-left: 115px;
   width: 575px;
 }
 
 /*Search Page */
-/* line 157, ../scss/_local_css.scss */
+/* line 160, ../scss/_local_css.scss */
 .searchElement {
   position: relative;
 }
-/* line 159, ../scss/_local_css.scss */
+/* line 162, ../scss/_local_css.scss */
 .searchElement .searchZone {
   position: relative;
   width: 100%;
@@ -139,7 +139,14 @@ button.accordion-toggle .content {
   border-radius: 3px;
   margin-bottom: 15px;
 }
-/* line 167, ../scss/_local_css.scss */
+/* line 170, ../scss/_local_css.scss */
+.searchElement .searchZone label {
+  position: absolute;
+  top: 45px;
+  left: 120px;
+  visibility: hidden;
+}
+/* line 176, ../scss/_local_css.scss */
 .searchElement .searchZone #searchField {
   position: absolute;
   top: 79px;
@@ -152,17 +159,28 @@ button.accordion-toggle .content {
   padding-left: 8px;
   border: 3px solid #eee;
 }
-/* line 178, ../scss/_local_css.scss */
+/* line 187, ../scss/_local_css.scss */
 .searchElement .searchZone #searchField:focus {
   border-radius: 5px;
-  border: 3px solid #eee !important;
+  border: 3px solid #FAD129 !important;
   outline: none;
 }
-/* line 187, ../scss/_local_css.scss */
+/* line 196, ../scss/_local_css.scss */
+.searchElement .searchZone h2.browse {
+  position: absolute;
+  top: 135px;
+  left: 120px;
+  color: #fff;
+}
+/* line 201, ../scss/_local_css.scss */
+.searchElement .searchZone h2.browse a {
+  color: #FAD129;
+}
+/* line 207, ../scss/_local_css.scss */
 .searchElement .searchResults {
   list-style: none;
 }
-/* line 189, ../scss/_local_css.scss */
+/* line 209, ../scss/_local_css.scss */
 .searchElement .searchResults .expertList {
   position: absolute;
   margin: 0;
@@ -175,20 +193,32 @@ button.accordion-toggle .content {
   border-right: 2px solid #eee;
   box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5);
 }
-/* line 202, ../scss/_local_css.scss */
+/* line 222, ../scss/_local_css.scss */
 .searchElement .searchResults .expertList li {
-  padding: 7px 5px 10px 5px;
+  padding: 8px 5px 8px 5px;
   background-image: none;
   background-color: #fff;
   border-bottom: 2px solid #eee;
   margin: 0;
   color: #222;
 }
-/* line 212, ../scss/_local_css.scss */
+/* line 232, ../scss/_local_css.scss */
+.searchElement .searchResults .expertList li h3 {
+  margin-bottom: 7px;
+}
+/* line 234, ../scss/_local_css.scss */
+.searchElement .searchResults .expertList li h3.noResults {
+  margin-bottom: 0;
+}
+/* line 238, ../scss/_local_css.scss */
 .searchElement .searchResults .expertList li a {
   font-size: 18px;
 }
-/* line 216, ../scss/_local_css.scss */
-.searchElement .searchResults .expertList li .label {
+/* line 242, ../scss/_local_css.scss */
+.searchElement .searchResults .expertList li p {
+  margin-bottom: 0;
+}
+/* line 244, ../scss/_local_css.scss */
+.searchElement .searchResults .expertList li p .label {
   font-weight: bolder;
 }

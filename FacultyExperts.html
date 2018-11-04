@@ -59,18 +59,28 @@
             //console.log(allKeywords);
             // check to see if the search term is in the string
             var validateTerm = new RegExp(searchTerm);
-            console.log(validateTerm);
+            //console.log(validateTerm);
             var exists = validateTerm.test(allKeywords);
-            console.log(exists);
+            //console.log(exists);
             if (exists) {
+              $(".expertList li").filter(function() {
+                // delete any existing errors
+                $(".expertList li.errorMessage").remove();
+                // toggle to show any matches
+                $(this).toggle($(this).attr("data-person").toLowerCase().indexOf(searchTerm) > -1);
+                //console.log(this);
+              });
+            } else {
+              // delete any existing errors
+              $(".expertList li.errorMessage").remove();
+              // toggle off any good results
               $(".expertList li").filter(function() {
                 // toggle to show any matches
                 $(this).toggle($(this).attr("data-person").toLowerCase().indexOf(searchTerm) > -1);
-                console.log(this);
+                //console.log(this);
               });
-            } else {
               // show a failure message 
-              $(".expertList").append("<li>No results. Browse by name, field, or expertise.</li>");
+              $(".expertList").append("<li class=\"errorMessage\"><h3 class=\"noResults\">No results. Browse by name, field, or expertise.</h3></li>");
             }   
           };
           // if string length goes below 3, hide all experts
@@ -85,6 +95,7 @@
   <section class="searchElement">
 
     <section class="searchZone">
+        <label for="searchField">Search</label>
         <input id="searchField" type="text" placeholder="Search by name, field, expertise or availability" tabindex="1" autocomplete="off">
     </section>
 

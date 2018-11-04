@@ -6,10 +6,13 @@ $color-maroon: #882346;
 $color-white: #fff;
 $color-grayeee: #eee;
 $color-gray222: #222;
+$color-yellow: #FAD129;
 $thin-maroon: 1px solid $color-maroon;
+$thin-yellow: 1px solid $color-yellow;
 $medium-maroon: 2px solid $color-maroon;
 $medium-grayeee: 2px solid $color-grayeee;
 $thick-grayeee: 3px solid $color-grayeee;
+$thick-yellow: 3px solid $color-yellow;
 $shadow-222: 0px 5px 30px rgba(0, 0, 0, .5);
 
 section {
@@ -164,7 +167,13 @@ ul{
 		border-radius: 3px;
 		margin-bottom: 15px;
 		//top: 0;
-		#searchField{
+		label {
+			position: absolute;
+			top: 45px;
+			left: 120px;
+			visibility: hidden;
+		}
+		#searchField {
 			position: absolute;
 			top: 79px;
 			left: 120px;
@@ -177,12 +186,23 @@ ul{
 			border: $thick-grayeee;
 			&:focus {
 				border-radius: 5px;
-				border: $thick-grayeee !important;
+				border: $thick-yellow !important;
 				// outline: $thick-grayeee !important;
 				// border: none;
 				outline: none;
 			}
 		}	
+		h2 {
+			&.browse {
+				position: absolute;
+				top: 135px;
+				left: 120px;
+				color: $color-white;
+				a {
+					color: $color-yellow;
+				}
+			}
+		}
 	}
 	.searchResults{
 		list-style: none;
@@ -200,7 +220,7 @@ ul{
 			border-right: $medium-grayeee;
 			box-shadow: $shadow-222;
 			li {
-				padding: 7px 5px 10px 5px;
+				padding: 8px 5px 8px 5px;
 				background-image: none;
 				background-color: $color-white;
 				border-bottom: $medium-grayeee;
@@ -209,13 +229,23 @@ ul{
 				//&:last-of-type{
 				// border-bottom: none;
 				//}
+				h3 {
+					margin-bottom: 7px;
+					&.noResults {
+						margin-bottom: 0;
+					}
+				}
 				a {
 					font-size: 18px;
 					//font-weight: bolder;
 				}
-				.label{
-					font-weight: bolder;
+				p {
+					margin-bottom: 0;
+					.label{
+						font-weight: bolder; 
+					}
 				}
+				
 			}	
 		}	
 	}
