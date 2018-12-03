@@ -3,6 +3,7 @@
 
 
 $color-maroon: #882346;
+$color-maroon-light: #902649;
 $color-white: #fff;
 $color-grayeee: #eee;
 $color-gray222: #222;
@@ -154,9 +155,6 @@ ul{
 }
 
 
-
-
-
 /*Search Page */
 .searchElement {
 		position: relative;
@@ -250,4 +248,20 @@ ul{
 			}	
 		}	
 	}
+}
+
+
+
+.reset {
+	cursor: pointer;
+  border-width: 0;
+  background-color: $color-maroon;
+  color: $color-white;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-family: 'ComeniaSansCondRegular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+  text-transform: uppercase;
+  &:hover {
+  	background-color: $color-maroon-light;
+  }
 }

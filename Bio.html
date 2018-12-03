@@ -43,6 +43,21 @@
                 <section class="details">
                   <h2>Professor, <span class="field">Sociology</span></h2>
                     <h3 class="chairships">Other Titles and Chairships</h3>
+                    <script type="text/javascript">
+                      $(document).ready(function() {
+                        // get tags
+                        var school = "School of Education"; // placeholder for expertises
+                        // make lowercase and remove any additional spaces
+                        var filterItem = school.toLowerCase().replace(/\s/g, '');
+                        // array separated by commas removing front and back spaces
+                        var allExpertsURL = "http://www.brooklyn.cuny.edu/web/news/faculty-experts/all-experts.php"; // anc_placeholder for all experts page
+
+                        // build the html
+                        $(".bio .details .school").append('<a href="'+allExpertsURL+'?='+filterItem+'">'+school+'</a>');
+                      });
+                    </script>
+                    <p class="school"></p>
+                    <!-- <a href="http://www.brooklyn.cuny.edu/web/news/faculty-experts/all-experts.php">School of Education</a> -->
 
                     <h3>Expertise</h3>
                     <script type="text/javascript">

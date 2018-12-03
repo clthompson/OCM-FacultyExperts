@@ -64,7 +64,7 @@
                 $.each(filterArray,function(index,item){
                   filterArray[index] = item.toLowerCase().replace(/\s/g, '').replace(/\./g, '');
                 });
-                console.log(filterArray);
+                //console.log(filterArray);
                 // part 2 rewrite the data-keywords content to be lowercase, no spaces, no commas
                 $(bios).each(function(){
                   // make a variable that gets the keywords and changes the strings
@@ -79,19 +79,63 @@
                   $(".bio[data-keywords*='"+filterTerm+"']").removeClass("hidden");
                   //append Keyword to the All Stories element
                   var filterLocation = filterArray.indexOf(filterTerm);
-                  $(".filter p span").append(keywordsArray[filterLocation]);
+                  $("h1").text(keywordsArray[filterLocation]+" Experts");
+                  var biosAmount = $(".bio").size();
+                  var biosHidden = $(".bio.hidden").size();
+                  console.log(biosAmount);
+                  console.log(biosHidden);
+                  var biosDifference = biosAmount - biosHidden;
+                  console.log(biosDifference);
+                  if (biosDifference < 5) {
+                    $(".reset.buttonOne").addClass("hidden");
+                  }
                 } else {
                   // show all stories
                   $(".bio").removeClass("hidden");
                   // hide filter
                   $(".filter").addClass("hidden");
+                  $(".reset").addClass("hidden");
                 };
+
                 // console.log(filterTerm);
                 // part 4 find the filterTerm in filterArray, get its position in the array, (append?) the same term from keywordsArray to the 'All stories in' line of code
+
+                //part 5 reset button
+                $(".reset").click(function(e){
+                  $(".bio").removeClass("hidden");
+                  $("h1").text("All Experts");
+                  var url = window.location.href;
+                  url = url.split('?')[0]
+                  window.history.pushState("data","Title",url);
+                  $(".reset").addClass("hidden");
+                  //document.title=url;
+                });
               });
           </script>
 
-                <section class="bio" data-last="Gould" data-name="Kenneth Gould" data-field="Sociology" data-expertise="Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters" data-url="gould.php"> <!-- this is an individual person -->
+                <button class="reset buttonOne">Reset</button>
+
+                <section class="bio hidden" data-last="Gould" data-name="Kenneth Gould" data-field="Sociology" data-keywords="Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters" data-expertise="Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters" data-url="gould.php"> <!-- this is an individual person -->
+                  <section class="photo">
+                    <a href="#"><img src="images/gould.jpg" alt="Gould"></a>
+                  </section>
+                  <section class="details">
+                    <h2><a href="gould.php">Kenneth Gould</a></h2>
+                    <h3>Professor, <span class="field">Sociology</span></h3>
+                    <h3>Expertise</h3>
+                    <p class="expertise"><a href="#">Environment</a>, <a href="#">Climate Change</a>, <a href="#">Gentrification</a>, <a href="#">Sustainable Development</a>, <a href="#">Environmental Justice</a>, <a href="#">Natural Disasters</a></p>
+                  </section>
+                  <section class="bio hidden" data-last="Gould" data-name="Kenneth Gould" data-field="Sociology" data-keywords="Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters" data-expertise="Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters" data-url="gould.php"> <!-- this is an individual person -->
+                  <section class="photo">
+                    <a href="#"><img src="images/gould.jpg" alt="Gould"></a>
+                  </section>
+                  <section class="details">
+                    <h2><a href="gould.php">Kenneth Gould</a></h2>
+                    <h3>Professor, <span class="field">Sociology</span></h3>
+                    <h3>Expertise</h3>
+                    <p class="expertise"><a href="#">Environment</a>, <a href="#">Climate Change</a>, <a href="#">Gentrification</a>, <a href="#">Sustainable Development</a>, <a href="#">Environmental Justice</a>, <a href="#">Natural Disasters</a></p>
+                  </section>
+                  <section class="bio hidden" data-last="Gould" data-name="Kenneth Gould" data-field="Sociology" data-keywords="Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters" data-expertise="Environment, Climate Change, Gentrification, Sustainable Development, Environmental Justice, Natural Disasters" data-url="gould.php"> <!-- this is an individual person -->
                   <section class="photo">
                     <a href="#"><img src="images/gould.jpg" alt="Gould"></a>
                   </section>
@@ -111,6 +155,7 @@
                     </ul>
                   </section> -->
                 </section><div class="clear"></div>
+                <button class="reset">Reset</button>
 
           </aection>
 
