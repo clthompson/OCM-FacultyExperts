@@ -79,13 +79,17 @@
                   $(".bio[data-keywords*='"+filterTerm+"']").removeClass("hidden");
                   //append Keyword to the All Stories element
                   var filterLocation = filterArray.indexOf(filterTerm);
-                  $("h1").text(keywordsArray[filterLocation]+" Experts");
+                  if (filterTerm === "print" | filterTerm === "phone" | filterTerm === "in-studio" | filterTerm === "videochat" | filterTerm === "on-campus") {
+                    $("h1").text("Experts Available for "+keywordsArray[filterLocation]+" Interviews");
+                  } else {
+                    $("h1").text(keywordsArray[filterLocation]+" Experts");
+                  }
                   var biosAmount = $(".bio").size();
                   var biosHidden = $(".bio.hidden").size();
-                  console.log(biosAmount);
-                  console.log(biosHidden);
+                  //console.log(biosAmount);
+                  //console.log(biosHidden);
                   var biosDifference = biosAmount - biosHidden;
-                  console.log(biosDifference);
+                  //console.log(biosDifference);
                   if (biosDifference < 5) {
                     $(".reset.buttonOne").addClass("hidden");
                   }
